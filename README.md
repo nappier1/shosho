@@ -1,131 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KATHARA</title>
+# KATHARA 💬  
+**Advanced WhatsApp Multi-Device Bot — Secure, Fast & Reliable**
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+Welcome to **KATHARA**, a WhatsApp multi-device automation project designed for developers and tech enthusiasts.  
+Easily generate session IDs, access developer tools, and explore the official source code.
 
-  <style>
-    :root {
-      --bg:#0b132b;
-      --card:#1c2541;
-      --accent:#46c2ff;
-      --muted:#9aa3bf;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,#071022 0%,var(--bg) 100%);
-      color:#fff;
-      font-family:"Poppins", "Baloo 2", sans-serif;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:30px;
-      min-height:100vh;
-    }
+---
 
-    .container{width:100%;max-width:900px;text-align:center}
-    .logo{font-family:"Baloo 2";font-size:42px;color:var(--accent);margin-bottom:10px}
-    .subtitle{color:var(--muted);margin-bottom:25px;font-size:15px}
+## 🚀 Features
+- 🔐 Secure multi-device WhatsApp session system  
+- ⚡ Fast, lightweight, and reliable architecture  
+- 🧠 Simple setup — no complex configuration  
+- 💡 Developer-friendly documentation and API access  
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px;
-      margin-top:10px;
-    }
-    .card{
-      background:rgba(255,255,255,0.05);
-      border-radius:14px;
-      padding:20px;
-      box-shadow:0 8px 24px rgba(2,6,23,0.6);
-      border:1px solid rgba(255,255,255,0.05);
-    }
-    .card h3{color:var(--accent);margin-bottom:8px}
-    .card p{color:var(--muted);font-size:14px;line-height:1.5;margin-bottom:12px}
-    .btn{
-      display:inline-block;
-      background:var(--accent);
-      color:#031224;
-      padding:10px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:600;
-      box-shadow:0 6px 18px rgba(70,194,255,0.2);
-    }
+---
 
-    footer{margin-top:28px;color:var(--muted);font-size:13px}
+## 🛠️ Developer Resources
+| Resource | Description |
+|-----------|-------------|
+| [GitHub Repository](https://github.com/nappier1/shosho) | Explore the official source code |
+| [Session ID Generator](https://example.com) | Securely generate your session ID |
+| [Documentation](https://github.com/nappierbug) | Learn how to integrate and build with KATHARA |
 
-    /* Floating buttons */
-    .fab-wrap{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      z-index:100;
-    }
-    .fab{
-      width:56px;
-      height:56px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.07);
-      text-decoration:none;
-      color:#fff;
-      font-size:16px;
-      font-weight:700;
-      box-shadow:0 10px 30px rgba(2,6,23,0.5);
-      transition:transform .12s ease;
-    }
-    .fab:active{transform:scale(.96)}
-    .fab.whatsapp{background:#25D366;color:#fff;}
-    .fab.instagram{background:#E1306C;color:#fff;}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="logo">KATHARA</div>
-    <div class="subtitle">Advanced WhatsApp Multi-Device Bot — Secure, Fast & Reliable</div>
+---
 
-    <div class="cards">
-      <div class="card">
-        <h3>📘 GitHub Repository</h3>
-        <p>Explore the official KATHARA repository to access source code, contribute, or deploy your own version.</p>
-        <a class="btn" href="https://github.com/nappierbug" target="_blank" rel="noopener">View Repository</a>
-      </div>
+## 🌐 Deployment
+Deployed with [Vercel](https://vercel.com)  
+🔗 **Live Site:** [https://shosho-five.vercel.app](https://shosho-five.vercel.app)
 
-      <div class="card">
-        <h3>🔑 Pair Code Site</h3>
-        <p>Generate your WhatsApp Session ID securely to link your KATHARA bot.</p>
-        <a class="btn" href="https://example.com" target="_blank" rel="noopener">Open Pair Code</a>
-      </div>
+---
 
-      <div class="card">
-        <h3>👨‍💻 Developer</h3>
-        <p>Access developer files, documentation and updates. Open source and free to explore.</p>
-        <a class="btn" href="https://github.com/nappierbug" target="_blank" rel="noopener">View Developer Files</a>
-      </div>
-    </div>
+## 🧑‍💻 Contributing
+We welcome all contributions!  
+To contribute:
+1. Fork the repository  
+2. Create a new branch (`feature/new-feature`)  
+3. Commit your changes  
+4. Push and create a Pull Request 🚀  
 
-    <footer>© 2025 Kathara nappier 😅😂🤦| All Rights Reserved</footer>
-  </div>
+---
 
-  <!-- Floating WhatsApp and Instagram Buttons -->
-  <div class="fab-wrap">
-    <!-- WhatsApp -->
-    <a class="fab whatsapp" href="https://wa.me/254116141363" target="_blank" rel="noopener" title="Chat on WhatsApp">WA</a>
+## ⚖️ License
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for details.
 
-    <!-- Instagram -->
-    <a class="fab instagram" href="https://www.instagram.com/n.a.p.p.i.e.r?igsh=ZGUzMzM3NWJiOQ==" target="_blank" rel="noopener" title="Visit on Instagram">IG</a>
-  </div>
-</body>
-</html>
+---
+
+## 💬 Connect
+Follow updates and developer news:  
+- 📷 [Instagram](https://www.instagram.com/n.a.p.p.i.e.r)
+- 💻 [GitHub Profile](https://github.com/nappier1)
+
+---
+
+**© 2025 Kathara Nappier 😅🤖 — All Rights Reserved**
