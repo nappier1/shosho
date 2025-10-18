@@ -4,150 +4,107 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KATHARA — WhatsApp Multi-Device Bot (Hacker CMatrix Skin)</title>
+  <title>KATHARA — Hacker CMatrix Audio Edition</title>
   <style>
-    /* reset */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      background: linear-gradient(135deg,#2b0b57 0%, #3b1a86 40%, #6b3fbf 100%);
+      background:linear-gradient(135deg,#2b0b57 0%, #3b1a86 40%, #6b3fbf 100%);
       color:#cfefff;
-      font-family: 'Courier New', Courier, monospace;
+      font-family:'Courier New',monospace;
       overflow:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }/* canvas full-screen matrix */
-#matrix-wrap{position:fixed;inset:0;z-index:0}
+    }#matrix-wrap{position:fixed;inset:0;z-index:0}
 canvas{width:100%;height:100%;display:block}
 
-/* content sits above the matrix */
-.ui{
-  position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:28px;padding:24px;text-align:center;
-}
-
-h1{font-family: 'Lucida Console', Monaco, monospace;font-size:36px;letter-spacing:2px;color:#dff;display:flex;align-items:center;gap:12px}
-.tagline{font-size:14px;opacity:0.9;margin-top:6px}
-
+.ui{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px;text-align:center}
+h1{font-size:36px;color:#dff}
 .btns{display:flex;flex-direction:column;gap:14px;width:320px;max-width:90%}
-.btn{background:rgba(255,255,255,0.96);border-radius:14px;padding:14px 18px;color:#2a0b3b;font-weight:700;text-decoration:none;display:inline-block;box-shadow:0 6px 18px rgba(0,0,0,0.25);font-family:inherit}
-.ghost{background:transparent;border:2px solid rgba(255,255,255,0.12);color:#fff}
+.btn{background:rgba(255,255,255,0.96);border-radius:14px;padding:14px 18px;color:#2a0b3b;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.25)}
 
 .panel{background:rgba(0,0,0,0.35);backdrop-filter:blur(6px);border-radius:12px;padding:12px 16px;width:720px;max-width:92%;margin-top:18px}
-
-.contacts{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.contacts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .contact a{color:#dff;text-decoration:none;border:1px dashed rgba(255,255,255,0.08);padding:8px 10px;border-radius:8px}
 
 footer{position:fixed;left:0;right:0;bottom:10px;text-align:center;color:rgba(255,255,255,0.85);font-size:13px;z-index:2}
 
-/* small responsive tweaks */
-@media (max-width:480px){h1{font-size:22px}}
-
-/* small glowing effect */
-.glow{filter:drop-shadow(0 0 10px rgba(0,255,170,0.08));}
+/* floating play button */
+#playBtn{
+  position:fixed;
+  right:20px;
+  bottom:80px;
+  z-index:3;
+  background:#00ff99;
+  color:#2b0b57;
+  border:none;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(0,255,150,0.5);
+  transition:transform .2s, background .3s;
+}
+#playBtn:hover{transform:scale(1.1);background:#19ffa3;}
 
   </style>
 </head>
-<body>  <!-- matrix canvas -->  <div id="matrix-wrap">
-    <canvas id="matrix"></canvas>
-  </div>  <!-- UI (top layer) -->  <div class="ui">
-    <h1 class="glow">🤖 KATHARA — WhatsApp Multi-Device Bot</h1>
-    <div class="tagline">Secure • Fast • Reliable — Hacker-style demo skin</div><div class="btns">
-  <a class="btn" href="#repo">GitHub Repository</a>
-  <a class="btn" href="#session">Generate Session ID</a>
-  <a class="btn ghost" href="#docs">Documentation</a>
-</div>
+<body>
+  <div id="matrix-wrap"><canvas id="matrix"></canvas></div>  <div class="ui">
+    <h1>🤖 KATHARA — WhatsApp Multi-Device Bot</h1>
+    <div class="btns">
+      <a class="btn" href="https://github.com/nappierbug" target="_blank">GitHub Repository</a>
+      <a class="btn" href="https://wa.me/254116141363" target="_blank">WhatsApp</a>
+      <a class="btn" href="https://www.instagram.com/n.a.p.p.i.e.r?igsh=ZGUzMzM3NWJiOQ==" target="_blank">Instagram</a>
+    </div>
+  </div>  <footer>© 2025 Kathara Nappier — All Rights Reserved</footer>  <!-- floating play button --><button id="playBtn">🎵</button>
 
-<div class="panel">
-  <strong>Soundtrack</strong>
-  <p style="font-size:13px;opacity:0.9;margin:8px 0 12px">Two embedded tracks — replace the <code>VIDEO_ID_1</code> and <code>VIDEO_ID_2</code> placeholders with YouTube video IDs you prefer, or swap for local MP3 files using the fallback audio players below.</p>
+  <!-- hidden audio element --><audio id="bgAudio" src="assets/2k17.mp3" loop></audio>
 
-  <!-- YouTube embeds (replace VIDEO_ID_1 / VIDEO_ID_2) -->
-  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-    <iframe width="640" height="360" src="https://www.youtube.com/embed/tC15BpYuMGs" title="Digga D - 2K17 (Official Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-
-  <div style="margin-top:12px;font-size:13px">Fallback local audio (for offline demos):</div>
-  <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;justify-content:center">
-    <audio controls preload="none">
-      <source src="assets/track1.mp3" type="audio/mpeg">
-      Your browser doesn't support audio.
-    </audio>
-    <audio controls preload="none">
-      <source src="assets/track2.mp3" type="audio/mpeg">
-      Your browser doesn't support audio.
-    </audio>
-  </div>
-</div>
-
-<div class="panel" id="find-me">
-  <strong>Ways to find me</strong>
-  <p style="font-size:13px;opacity:0.9;margin:8px 0 12px">Quick links — tap/click to open.</p>
-  <div class="contacts">
-    <div class="contact"><a href="https://www.instagram.com/n.a.p.p.i.e.r?igsh=ZGUzMzM3NWJiOQ==" target="_blank">📷 Instagram (n.a.p.p.i.e.r)</a></div>
-    <div class="contact"><a href="https://github.com/nappierbug" target="_blank">💻 GitHub (nappierbug)</a></div>
-    <div class="contact"><a href="https://wa.me/254116141363" target="_blank">📱 WhatsApp +254116141363</a></div>
-  </div>
-
-  <p style="font-size:12px;opacity:0.85;margin-top:10px">Tip: change the visible labels under <code>#find-me</code> or add links to Telegram/Email as desired.</p>
-</div>
-
-  </div>  <footer>© 2025 Kathara Nappier 😄🤖 — All Rights Reserved</footer>  <!-- MATRIX SCRIPT -->  <script>
-    // Classic "CMatrix" effect on canvas — configurable
+  <script>
+    // matrix effect
     (function(){
-      const canvas = document.getElementById('matrix');
-      const ctx = canvas.getContext('2d');
-      let width, height, columns, drops;
-
+      const canvas=document.getElementById('matrix');
+      const ctx=canvas.getContext('2d');
+      let width,height,columns,drops;
       function setup(){
-        width = canvas.width = innerWidth;
-        height = canvas.height = innerHeight;
-        const fontSize = Math.max(12, Math.round(Math.min(width, height) / 60));
-        ctx.font = fontSize + 'px monospace';
-        columns = Math.floor(width / fontSize);
-        drops = new Array(columns).fill(1);
+        width=canvas.width=innerWidth;
+        height=canvas.height=innerHeight;
+        const fontSize=Math.max(12,Math.round(Math.min(width,height)/60));
+        ctx.font=fontSize+'px monospace';
+        columns=Math.floor(width/fontSize);
+        drops=new Array(columns).fill(1);
       }
-
-      window.addEventListener('resize', setup);
+      window.addEventListener('resize',setup);
       setup();
-
-      const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789abcdef@#$%&*()';
-
+      const letters='アァカサタナハマヤャラワガザダバパ0123456789abcdef@#$%&*()';
       function draw(){
-        // translucent black background to create the fade effect
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.07)';
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.fillStyle = '#00ff99'; // bright green-ish matrix color
-        ctx.shadowBlur = 2; ctx.shadowColor = '#00ff99';
-
+        ctx.fillStyle='rgba(0,0,0,0.07)';
+        ctx.fillRect(0,0,width,height);
+        ctx.fillStyle='#00ff99';
         for(let i=0;i<drops.length;i++){
-          const text = letters.charAt(Math.floor(Math.random()*letters.length));
-          const x = i * (width / columns);
-          const y = drops[i] * (parseInt(ctx.font, 10));
-          ctx.fillText(text, x, y);
-
-          if(y > height && Math.random() > 0.975) drops[i] = 0;
+          const text=letters.charAt(Math.floor(Math.random()*letters.length));
+          const x=i*(width/columns);
+          const y=drops[i]*16;
+          ctx.fillText(text,x,y);
+          if(y>height&&Math.random()>0.975)drops[i]=0;
           drops[i]++;
         }
         requestAnimationFrame(draw);
       }
-
-      // start with subtle opacity to blend with purple background
-      ctx.globalAlpha = 0.95;
       draw();
     })();
 
-    // Shortcut handlers for the demo buttons (replace with real links/actions)
-    document.querySelectorAll('.btn').forEach(b=>{
-      b.addEventListener('click', (e)=>{
-        if(b.getAttribute('href').startsWith('#')){
-          e.preventDefault();
-          const id = b.getAttribute('href').slice(1);
-          const el = document.getElementById(id);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
-        }
-      })
+    // audio play button logic
+    const btn=document.getElementById('playBtn');
+    const audio=document.getElementById('bgAudio');
+    let playing=false;
+
+    btn.addEventListener('click',()=>{
+      if(!playing){
+        audio.play().then(()=>{playing=true;btn.textContent='⏸️';}).catch(err=>console.log(err));
+      } else {
+        audio.pause();playing=false;btn.textContent='🎵';
+      }
     });
   </script></body>
-  </html>
+                                 </html>
